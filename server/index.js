@@ -9,6 +9,7 @@ const roadmapRouter = require("./routes/roadmapRouter");
 const resumeRouter = require("./routes/resumeRouter");
 const interviewRouter = require("./routes/interviewRouter");
 const reportRouter = require("./routes/reportRouter");
+const personaRouter = require("./routes/personaRouter");
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
@@ -32,6 +33,7 @@ app.use("/api/roadmap", roadmapRouter);
 app.use("/api/resume", resumeRouter);
 app.use("/api/interview", interviewRouter);
 app.use("/api/reports", reportRouter);
+app.use("/api/persona", personaRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/dist")));

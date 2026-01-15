@@ -41,6 +41,12 @@ const Sidebar = ({ open, setOpen }) => {
     },
 
     {
+      name: "Create Personas",
+      link: "/my-personas",
+      icon: FaUser,
+    },
+
+    {
       name: "Roadmaps",
       icon: BsBarChartFill,
       id: "roadmaps",

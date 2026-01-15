@@ -15,7 +15,6 @@ import TailoringResumePage from "./Pages/TailoringResumePage.jsx";
 import MyResumesPage from "./Pages/MyResumesPage.jsx";
 import CoursePage from "./Pages/CoursePage.jsx";
 
-
 // 👉 Import our new pages
 import InterviewHomePage from "./Pages/InterviewHomePage.jsx";
 import BackendRoadmapGraph from "./Pages/BackendRoadmapPage.jsx";
@@ -26,6 +25,8 @@ import ReportPage from "./Pages/ReportPage.jsx";
 import CustomInterview from "./Pages/CustomInterview.jsx";
 import CustomInterviewRoom from "./Pages/CustomInterviewRoom.jsx";
 
+import MyPersonasPage from "./Pages/MyPersonasPage.jsx";
+import PersonaBuilder from "./Pages/PersonaBuilder.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,15 +41,17 @@ const router = createBrowserRouter([
       { path: "/course/:id", element: <CoursePage /> },
       { path: "/templates", element: <TemplateGallery /> },
       { path: "/resume-builder", element: <ResumeBuilder /> },
+      { path: "/persona-builder", element: <PersonaBuilder /> },
       { path: "/my-resumes", element: <MyResumesPage /> },
+      { path: "/my-personas", element: <MyPersonasPage /> },
       { path: "/tailorinput", element: <TailorInput /> },
       { path: "/tailoring-resume", element: <TailoringResumePage /> },
 
       // 👉 New Interview Routes
       { path: "/interview", element: <InterviewHomePage /> },
       { path: "/interview/:id", element: <InterviewDetailsPage /> },
-      { path: "/room", element: <InterviewRoom  /> },
-      { path: "/report/:reportId", element: <ReportPage  /> },
+      { path: "/room", element: <InterviewRoom /> },
+      { path: "/report/:reportId", element: <ReportPage /> },
 
       { path: "/custom-interview", element: <CustomInterview /> },
       { path: "/custom-interview-room", element: <CustomInterviewRoom /> },

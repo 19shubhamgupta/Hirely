@@ -8,6 +8,7 @@ import "../styles/pdf-styles.css";
 import { useSavedResumeStore } from "../store/useSavedResumeStore";
 import SaveResumeModal from "../Components/SaveResumeModal";
 import { axiosInstance } from "../lib/axios";
+import "../styles/pdf-styles.css";
 
 export default function ResumeBuilder() {
   const [searchParams] = useSearchParams();
@@ -190,6 +191,8 @@ export default function ResumeBuilder() {
   };
 
   // ✅ Puppeteer Backend PDF Generation
+
+  // ✅ Improved Download Method using html2canvas with CSS fallbacks
   const downloadResume = async () => {
     if (!resumeRef.current) {
       toast.error("Resume preview not available");

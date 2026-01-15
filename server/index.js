@@ -11,6 +11,7 @@ const interviewRouter = require("./routes/interviewRouter");
 const reportRouter = require("./routes/reportRouter");
 const pdfRouter = require("./routes/pdfRouter");
 const portfolioRouter = require("./routes/portfolioRouter");
+const personaRouter = require("./routes/personaRouter");
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
@@ -28,6 +29,8 @@ app.use(
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
 app.use("/api/roadmap", roadmapRouter);
@@ -36,6 +39,7 @@ app.use("/api/interview", interviewRouter);
 app.use("/api/reports", reportRouter);
 app.use("/api/pdf", pdfRouter);
 app.use("/api/portfolio", portfolioRouter);
+app.use("/api/persona", personaRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/dist")));

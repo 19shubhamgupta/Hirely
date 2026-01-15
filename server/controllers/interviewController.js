@@ -179,7 +179,7 @@ Return ONLY JSON object. No extra text, no markdown.
 
     // Call Gemini
     const model = genAI.getGenerativeModel({
-      model: "models/gemini-1.5-flash",
+      model: "models/gemini-2.5-flash",
     });
     const result = await model.generateContent(prompt);
     const responseText = await result.response.text();
@@ -304,7 +304,7 @@ Return ONLY JSON array. No extra text, no markdown.
 `;
 
     // --- Step 4: Generate with Gemini ---
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(prompt);
     const responseText = await result.response.text();
 

@@ -29,6 +29,9 @@ import Portfolio from "./Pages/Portfolio.jsx";
 import CreatePortfolio from "./Components/CreatePortfolio.jsx";
 import GamePage from "./Pages/GamePage.jsx";
 
+
+import MyPersonasPage from "./Pages/MyPersonasPage.jsx";
+import PersonaBuilder from "./Pages/PersonaBuilder.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +47,9 @@ const router = createBrowserRouter([
       { path: "/templates", element: <TemplateGallery /> },
       { path: "/resume-builder", element: <ResumeBuilder /> },
       { path: "/my-resumes", element: <MyResumesPage /> },
+      { path: "/persona-builder", element: <PersonaBuilder /> },
+      { path: "/my-resumes", element: <MyResumesPage /> },
+      { path: "/my-personas", element: <MyPersonasPage /> },
       { path: "/tailorinput", element: <TailorInput /> },
       { path: "/tailoring-resume", element: <TailoringResumePage /> },
 
@@ -52,6 +58,8 @@ const router = createBrowserRouter([
       { path: "/interview/:id", element: <InterviewDetailsPage /> },
       { path: "/room", element: <InterviewRoom  /> },
       { path: "/report/:reportId", element: <ReportPage  /> },
+      { path: "/room", element: <InterviewRoom /> },
+      { path: "/report/:reportId", element: <ReportPage /> },
 
       { path: "/custom-interview", element: <CustomInterview /> },
       { path: "/custom-interview-room", element: <CustomInterviewRoom /> },
@@ -69,7 +77,8 @@ const router = createBrowserRouter([
     path : "/portfolio/:slug",
     element : <Portfolio/>
   }
-]);
+    ],
+  );
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

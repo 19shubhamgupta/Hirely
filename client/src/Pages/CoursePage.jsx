@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { useCourseStore } from "../store/useCourseStore";
 
 const CoursePage = () => {
   const { currentCourse } = useCourseStore();
+  const navigate = useNavigate();
 
   if (!currentCourse) {
     return (
@@ -10,7 +12,9 @@ const CoursePage = () => {
       </div>
     );
   }
-
+const handleGameClickked = ()=>{
+    navigate("/play-game");
+}
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
@@ -77,6 +81,21 @@ const CoursePage = () => {
             </ul>
           </div>
         )}
+
+        {/* Game Challenge Button */}
+        <div className="mt-12 flex justify-center">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white font-bold text-xl rounded-xl shadow-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-purple-500/50 active:scale-95 overflow-hidden"
+          onClick={handleGameClickked}
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></span>
+            <span className="relative flex items-center gap-3">
+              <span className="text-2xl">🎮</span>
+              <span className="tracking-wider">ENTER ARENA</span>
+              <span className="text-2xl animate-pulse">⚔️</span>
+            </span>
+            <div className="absolute inset-0 -top-1 -left-1 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+          </button>
+        </div>
       </div>
     </div>
   );

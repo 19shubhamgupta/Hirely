@@ -167,7 +167,31 @@ Respond ONLY with a valid JSON object in this exact format, with no additional t
       "url": "https://additional-resources-url",
       "description": "Supplementary materials, tutorials, and articles"
     }
-  ]
+  ],
+  "gameData": {
+    "conceptMatcher": [
+      {
+        "term": "Short concept name",
+        "definition": "Clear, concise definition in 10-15 words"
+      },
+      {
+        "term": "Another concept",
+        "definition": "Brief explanation of the concept"
+      },
+      {
+        "term": "Key term",
+        "definition": "Simple definition for matching game"
+      },
+      {
+        "term": "Important concept",
+        "definition": "Easy to understand definition"
+      },
+      {
+        "term": "Core principle",
+        "definition": "Straightforward explanation"
+      }
+    ]
+  }
 }
 
 Rules:
@@ -178,10 +202,14 @@ Rules:
 5. URLs must be valid HTTPS links
 6. No line breaks in strings (use <br> tags instead)
 7. Maximum 3 sections
-8. Maximum 3 resources`;
+8. Maximum 3 resources
+9. Generate exactly 5 concept-definition pairs for the game
+10. Keep definitions concise (10-15 words) for better gameplay
+11. Terms should be 1-3 words maximum
+12. Definitions should be clear and distinct from each other`;
 
     // Call Gemini API to generate course content
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const responseText = response.text();
@@ -278,12 +306,15 @@ Rules:
       resourcesCount: courseContent.resources?.length || 0,
     });
 
+    console.log("Game data:", courseContent.gameData?.conceptMatcher);
+
     // Return the generated course content
     return res.status(200).json({
       title: courseContent.title,
       videoUrl,
       sections: courseContent.sections,
       resources: courseContent.resources,
+      gameData: courseContent.gameData,
     });
   } catch (error) {
     console.error("Error generating chapter:", error);

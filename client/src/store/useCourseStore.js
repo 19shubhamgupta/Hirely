@@ -16,6 +16,7 @@ export const useCourseStore = create((set, get) => ({
   userRoadmaps: [],
   courseData: null,
   currentCourse: null, // Will store the current course being viewed
+  gameData: null, // Will store the game data for concept matcher
 
   // Set course generation state
   setIsGeneratingCourse: (value) => set({ isGeneratingCourse: value }),
@@ -87,9 +88,13 @@ export const useCourseStore = create((set, get) => ({
         resources: generatedchpt.data.resources || [],
       };
 
+      // Store game data separately
+      const gameData = generatedchpt.data.gameData || null;
+
       set({
         chptData: generatedchpt,
         currentCourse: courseContent,
+        gameData: gameData,
       });
 
       toast.success("Generated successfully!");

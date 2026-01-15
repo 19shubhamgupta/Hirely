@@ -27,6 +27,7 @@ import CustomInterview from "./Pages/CustomInterview.jsx";
 import CustomInterviewRoom from "./Pages/CustomInterviewRoom.jsx";
 import Portfolio from "./Pages/Portfolio.jsx";
 import CreatePortfolio from "./Components/CreatePortfolio.jsx";
+import GamePage from "./Pages/GamePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
 
       { path: "/roadmap/Frontend", element: <FrontendRoadmapGraph /> },
       { path: "/roadmap/Backend", element: <BackendRoadmapGraph /> },
+      {path : "/play-game", element : <GamePage/>},
       
       {path : "/create-portfolio", element : <CreatePortfolio/>}
 

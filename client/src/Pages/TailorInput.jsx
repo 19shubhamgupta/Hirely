@@ -36,6 +36,10 @@ const TailorInput = () => {
 
     setStep(3); // Show loader step
     const res = await getTailorData(formData);
+    console.log("Tailor Data Response:", res);
+    if (!res) {
+      setStep(2);
+    }
     if (!isTailoring && res) {
       navigate("/tailoring-resume");
     }
@@ -171,12 +175,14 @@ const TailorInput = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto border-2 border-blue-950 mt-20">
       {/* Progress indicator */}
-      <div className="mb-10">
+      <div className="mb-10 px-6">
+        {/* Step circles with labels */}
         <div className="flex items-center justify-between relative mb-2">
           {[1, 2].map((stepNumber) => (
-            <div key={stepNumber} className="flex flex-col z-10">
+            <div key={stepNumber} className="flex flex-col items-center z-10">
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center border-4 ${
+                className={`w-12 h-12 rounded-full flex items-center justify-center 
+                transition-all duration-300 border-4 ${
                   step >= stepNumber
                     ? "text-white border-blue-950"
                     : "text-gray-400 border-blue-950 bg-white"
@@ -189,22 +195,24 @@ const TailorInput = () => {
                 {stepNumber}
               </div>
               <span
-                className="mt-3 text-sm font-medium"
+                className="mt-3 text-sm font-medium whitespace-nowrap"
                 style={{ color: step >= stepNumber ? "#00ABE4" : "#CDDEEF" }}
               >
                 {stepNumber === 1 ? "Resume" : "Job Description"}
               </span>
             </div>
           ))}
+
+          {/* Thick progress bar underneath */}
           <div
-            className="absolute top-4 left-0 h-3 bg-gray-200 w-full -z-0 rounded-full"
+            className="absolute top-4 left-6 right-6 h-3 bg-gray-200 -z-0 rounded-full"
             style={{ backgroundColor: "#CDDEEF" }}
           ></div>
           <div
-            className="absolute top-4 left-0 h-3 transition-all duration-500 ease-in-out rounded-full"
+            className="absolute top-4 left-6 h-3 transition-all duration-500 ease-in-out rounded-full"
             style={{
               backgroundColor: "#00ABE4",
-              width: step === 1 ? "0%" : "100%",
+              width: step === 1 ? "0%" : "calc(100% - 48px)",
             }}
           ></div>
         </div>

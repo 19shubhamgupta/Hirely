@@ -1,0 +1,67 @@
+/* PDF generation specific styles */
+.pdf-export {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Remove all gradient backgrounds and replace with solid colors */
+.pdf-export .bg-gradient-to-r,
+.pdf-export .bg-gradient-to-l,
+.pdf-export .bg-gradient-to-t,
+.pdf-export .bg-gradient-to-b,
+.pdf-export .bg-gradient-to-tr,
+.pdf-export .bg-gradient-to-tl,
+.pdf-export .bg-gradient-to-br,
+.pdf-export .bg-gradient-to-bl {
+  background: #f8fafc !important;
+  background-image: none !important;
+}
+
+/* Handle gradient text properly */
+.pdf-export .bg-clip-text,
+.pdf-export .text-transparent {
+  color: #1e293b !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #1e293b !important;
+}
+
+/* Remove animations that can cause issues */
+.pdf-export .animate-pulse,
+.pdf-export [class*="animate-"] {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Ensure all fonts render properly */
+.pdf-export * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", sans-serif !important;
+}
+
+/* Force solid colors for any remaining problematic elements */
+.pdf-export [style*="gradient"],
+.pdf-export [style*="oklch"],
+.pdf-export [style*="color-mix"] {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #1e293b !important;
+}
+/* Force Tailwind colors into hex/rgb for PDF export */
+.bg-blue-600 {
+  background-color: #2563eb !important;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+.text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}

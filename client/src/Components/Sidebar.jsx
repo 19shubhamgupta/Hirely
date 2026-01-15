@@ -9,6 +9,7 @@ import { AiOutlineBook } from "react-icons/ai";
 import { FaRobot } from "react-icons/fa";
 import { RiMagicLine } from "react-icons/ri";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useCourseStore } from "../store/useCourseStore";
 import { useStoreAuth } from "../store/useAuthStore";
@@ -82,6 +83,11 @@ const Sidebar = ({ open, setOpen }) => {
       name : "Portfolio",
       link : "/create-portfolio",
       icon : MdPerson4,
+    },
+    {
+      name: "My Jobs",
+      link: "/my-jobs",
+      icon: MdWork,
     },
     {
       name: "Logout",

@@ -28,6 +28,7 @@ import CustomInterviewRoom from "./Pages/CustomInterviewRoom.jsx";
 import Portfolio from "./Pages/Portfolio.jsx";
 import CreatePortfolio from "./Components/CreatePortfolio.jsx";
 import GamePage from "./Pages/GamePage.jsx";
+import MyJobs from "./Pages/MyJobs.jsx";
 
 
 import MyPersonasPage from "./Pages/MyPersonasPage.jsx";
@@ -68,7 +69,8 @@ const router = createBrowserRouter([
       { path: "/roadmap/Backend", element: <BackendRoadmapGraph /> },
       {path : "/play-game", element : <GamePage/>},
       
-      {path : "/create-portfolio", element : <CreatePortfolio/>}
+      {path : "/create-portfolio", element : <CreatePortfolio/>},
+      {path : "/my-jobs", element : <MyJobs/>}
 
     ],
     

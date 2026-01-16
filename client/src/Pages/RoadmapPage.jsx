@@ -6,12 +6,6 @@ const RoadmapPage = () => {
   const { authUser } = useStoreAuth();
   const navigate = useNavigate();
 
-  // Redirect to login if not authenticated
-  if (!authUser) {
-    navigate("/login");
-    return null;
-  }
-
   // List of roadmap roles
   const roadmaps = [
     { id: 1, title: "Frontend", isNew: false },
@@ -70,6 +64,10 @@ const RoadmapPage = () => {
     // Encode URI to handle spaces & special characters
     navigate(`/roadmap/${encodeURIComponent(title)}`);
   };
+
+  if (!authUser) {
+    return null;
+  }
 
   return (
     <div

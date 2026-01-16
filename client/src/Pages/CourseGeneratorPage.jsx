@@ -1,15 +1,11 @@
 import React from "react";
 import { useStoreAuth } from "../store/useAuthStore";
-import { useNavigate } from "react-router-dom";
 import CourseGeneratorForm from "../Components/CourseGeneratorForm";
 
 const CourseGeneratorPage = () => {
   const { authUser } = useStoreAuth();
-  const navigate = useNavigate();
 
-  // Redirect to login if not authenticated
   if (!authUser) {
-    navigate("/login");
     return null;
   }
 

@@ -17,6 +17,16 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
+  // Redirect to login if not authenticated (after auth check completes)
+  useEffect(() => {
+    const publicPaths = ["/login", "/signup"];
+    const isPublicPath = publicPaths.includes(location.pathname);
+
+    if (!isCheckingAuth && !authUser && !isPublicPath) {
+      navigate("/login", { replace: true });
+    }
+  }, [isCheckingAuth, authUser, location.pathname, navigate]);
+
   // Handle Google OAuth callback
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
